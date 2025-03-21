@@ -4,8 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <div class="overview">
+        <h2>Overview</h2>
+        <div>
+            Despite advancements made in technology and medicine, access to proper healthcare remains limited for many Filipinos, possibly contributing to the country's high mortality rate up to this date.
+        </div>
+        <div>
+            As such, we intend to use this study to examine the factors influencing healthcare accessibility and to determine its correlation, if significant, with Filipino mortality rates, shedding light on the disparities in healthcare availability across different regions.
+        </div>
+    </div>
+    <div class="background">
+        <h2>Background</h2>
+        <div>
+            Throughout the years, accessibility to healthcare and basic health services continue to be scarce and uneven in the Philippines.
+        </div>
+        <div>
+            In April of 2024, the World Health Organization stated that almost 800 million people in the Western Pacific region, including the Philippines, have insufficient access to basic healthcare services. This is further seen in the continuous increase of household expenditures from ₱686.49 billion in 2023 to ₱754.54 billion in 2024. Although the amount of facilities have increased, totaling to 40,108 health facilities in the country as of January 2024, this remains disproportionate among regions with CALABARZON having 4,415 facilities while other regions such as NCR and CAR having 2,784 and 1,278 facilities respectively.
+        </div>
+        Sources: <a href="https://www.statista.com/topics/6483/health-sector-in-the-philippines/#topicOverview" rel="noreferrer noopener" target="_blank">[1]</a> <a href="https://globalnation.inquirer.net/230863/who-basic-health-services-lacking-in-ph-western-pacific" rel="noreferrer noopener" target="_blank">[2]</a>
+    </div>
+    <div class="problem">
+        <h2>Problem</h2>
+        The inaccessibility of proper healthcare for many Filipinos has been exacerbated by the lacking amount of facilities and professionals in the industry as well as the increasing pricing of healthcare itself.
+    </div>
+    <div class="solutions">
+        <h2>Solutions</h2>
+        Our solution is to make use of data science methods and tools to analyze these factors that affect the accessibility of healthcare among Filipinos as a way to gain insights of the current situation of our healthcare system, giving way for feasible solutions to be implemented.
+    </div>
+    <div class="hypotheses">
+        <h2>Hypotheses</h2>
+        <div>
+            Null: There is little to no correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
+        </div>
+        <div>
+            Alternative: There is a significant correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
+        </div>
+    </div>
+    <div class="topics">
+        <h2>Research Topics</h2>
+        "Correlation of the Availability of Health Facilities and Mortality rate”
+        <ol>
+            <li>How many health facilities are currently operational in each region?</li>
+            <li>What is the ratio of healthcare professionals to the population in different regions?</li>
+            <li>How does the availability of health facilities correlate to the mortality rate in each region?"</li>
+        </ol>
+    </div>
+    <div class="data-source">
+        <h3>Where we got our data:</h3>
+        <ol>
+            <li>
+                Vital Statistics Report on Deaths in the Philippines 2023 - Philippine Statistics Authority
+                <div>
+                    The 2023 yearly report on deaths in the Philippines. The dataset has a total of 698,421 observations. It contains the following fields:
+                    <ul>
+                        <li>Date of Death</li>
+                        <li>Place of Death</li>
+                        <li>Sex</li>
+                        <li>Age</li>
+                        <li>Residence</li>
+                        <li>Civil Status</li>
+                        <li>Citizenship</li>
+                        <li>Site of Occurence</li>
+                        <li>Attendance at Death</li>
+                        <li>Registration Status</li>
+                        <li>Cause of Death.</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                Active Facilities List - National Health Facility Registry
+                <div>
+                    The master list of all active health facilities and health-related facilities. The dataset has a total of 118 observations. It contains the following fields:
+                    <ul>
+                        <li>Region Name</li>
+                        <li>Province Name</li>
+                        <li>No. of Barangay Health Stations</li>
+                        <li>No. of Rural Health Units</li>
+                        <li>No. of Hospitals</li>
+                        <li>No. of City Health Offices</li>
+                        <li>No. of Infirmaries</li>
+                        <li>No. of Birthing Homes</li>
+                        <li>No. of Health Facilities with No License</li>
+                        <li>No. of Health Facilities with License</li>
+                        <li>No. of Health Facilities by the Government</li>
+                        <li>No. of Private Health Facilities</li>
+                    </ul> 
+                </div>
+            </li>
+            <li>
+                Field Health Services Information System 2023 - Department of Health
+                <div>
+                    The report on the national facility-based routine health information system used by the Department of Health to collect and manage data on health service delivery and public health programs. However, we will only be using data on the number and ratio by health professional and active barangay health worker in each province and region. The dataset has a total of 122 observations. The dataset has the following fields:
+                    <ul>
+                        <li>Region Name</li>
+                        <li>Province Name</li>
+                        <li>Population</li>
+                        <li>Doctors of Medicine</li>
+                        <li>Dentists</li>
+                        <li>Public Health Nurses</li>
+                        <li>Midwives</li>
+                        <li>Nutritionists</li>
+                        <li>Medical Technologists</li>
+                        <li>Sanitary Engineers</li>
+                        <li>Sanitary Inspectors</li>
+                        <li>Active Barangay Health Workers</li>
+                    </ul>
+                </div>
+            </li>
+        </ol>
+        <a href="https://docs.google.com/spreadsheets/d/1hA3XoAqu0r-yoPFXHe1NJnfaSTSp3r3lgN0DjGbvzRs/edit?usp=sharing" rel="noreferrer noopener" target="_blank">View our dataset here</a>
+    </div>
 </body>
 </html>
