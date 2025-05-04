@@ -1,0 +1,119 @@
+Region Name,Province Name,Population,MDs,Dentists
+NCR,City of Malabon,"389,819",58,16
+NCR,City of Navotas,"254,778",14,10
+NCR,City of Valenzuela,"732,364",94,27
+NCR,City of Caloocan,"1,708,376",71,41
+NCR,City of Marrirkina,"464,962",22,12
+NCR,City of Pasig,"825,380",84,35
+NCR,pateros,"66,279",5,4
+NCR,City of Taguig,"917,267",82,62
+NCR,City of Quezon,"3,027,195",115,59
+NCR,City of makati,"637,870",92,52
+NCR,City of mandaluyong,"434,978",56,26
+NCR,City of San Juan,"127,452",9,10
+NCR,City of Manila,"1,889,338",141,126
+NCR,City of las Pinas,"618,866",38,25
+NCR,City of Muntinlupa,"553,660",36,24
+NCR,City of Paranaque,"704,904",23,21
+NCR,City of Pasay,"448,847",31,15
+CAR,Abra,"253,559",23,0
+CAR,Apayao,"128,167",13,3
+CAR,Benguet,"473,982",21,22
+CAR,Ifugao,"216,448",13,7
+CAR,Kalinga,"238,965",15,12
+CAR,Mt. Province,"162,971",14,6
+CAR,City of Baguio,"377,580",16,5
+Region I,Ilocos Norte,"616,826",34,2
+Region I,Ilocos Sur,"713,424",55,24
+Region I,La Union,"835,494",31,16
+Region I,Pangasinan,"3,045,822",97,47
+Region II,Batanes,"19,107",7,2
+Region II,Cagayan,"1,289,735",79,15
+Region II,Isabela,"1,580,009",55,28
+Region II,Nueva Vizcaya,"514,210",27,9
+Region II,Quirino,"211,146",11,4
+Region III,Aurora,"243,172",10,4
+Region III,Bataan,"876,011",53,14
+Region III,Bulacan,"3,788,883",106,55
+Region III,Nueva Ecija,"2,353,166",87,40
+Region III,Pampanga,"2,508,544",54,28
+Region III,Tarlac,"1,532,063",44,28
+Region III,Zambales,"664,850",22,16
+Region III,City of Angeles,"474,775",7,3
+Region III,City of Olongapo,"264,262",17,6
+Region IVA,Batangas,"2,969,087",78,58
+Region IVA,Cavite,"4,451,043",93,34
+Region IVA,Laguna,"3,458,788",113,48
+Region IVA,Quezon,"1,996,004",64,32
+Region IVA,Rizal,"3,418,289",97,32
+Region IVA,City of Lucena,"286,007",3,2
+Region IVB,Mmarinduque,"242,451",12,4
+Region IVB,Mindoro Occidental,"539,533",21,10
+Region IVB,Mindoro Oriental,"926,654",72,21
+Region IVB,Palawan,"965,716",37,11
+Region IVB,Romblon,"314,575",19,12
+Region IVB,City of Puerto Princesa,"314,862",15,3
+Region V,Albay,"1,415,746",29,13
+Region V,Camarines Norte,"653,656",18,11
+Region V,Camarines Sur,"1,916,128",57,20
+Region V,Catanduanes,"279,648",15,6
+Region V,Masbate,"932,221",32,11
+Region V,Sorsogon,"852,791",36,14
+Region VI,Aklan,"626,648",25,6
+Region VI,Antique,"617,880",39,5
+Region VI,Capiz,"817,827",30,22
+Region VI,Guimaras,"191,419",11,4
+Region VI,Iloilo,"2,081,051",77,34
+Region VI,Negros Occidental,"2,652,749",138,34
+Region VI,City of Bacolod,"598,468",22,6
+Region VI,City of Iloilo,"461,791",49,18
+Region VII,Bohol,"1,421,485",72,21
+Region VII,Cebu,"3,420,109",114,48
+Region VII,Negros Oriental,"1,471,146",56,9
+Region VII,Siquijor,"104,070",6,2
+Region VII,City of Cebu,"993,006",35,18
+Region VII,City of Lapu-Lapu,"517,787",6,2
+Region VII,City of Mandaue,"377,443",23,4
+Region VIII,Biliran,"183,761",10,2
+Region VIII,Eastern Samar,"488,406",39,11
+Region VIII,Northern Leyte,"1,582,542",51,14
+Region VIII,Northern Samar,"652,283",28,12
+Region VIII,Southern Leyte,"433,569",26,4
+Region VIII,Western Samar,"813,690",30,5
+Region VIII,City of Tacloban,"259,015",11,1
+Region IX,Zamboanga del Norte,"1,073,915",34,12
+Region IX,Zamboanga del Sur,"1,080,246",39,17
+Region IX,Zamboanga Sibugay,"686,576",22,9
+Region IX,City of Isabela,"131,842",5,1
+Region IX,City of Zamboanga,"1,001,912",0,0
+Region X,Bukidnon,"1,606,133",18,4
+Region X,Camiguin,"94,450",6,1
+Region X,Lanao del Norte,"743,529",25,8
+Region X,Misamis Occcidental,"632,855",23,12
+Region X,Misamis Oriental,"987,437",47,12
+Region X,City of Cagayan de Oro,"755,908",21,8
+Region X,City of Iligan,"371,966",28,2
+Region XI,Davao de Oro,"792,250",22,12
+Region XI,Davao del Norte,"1,155,884",27,17
+Region XI,Davao Oriental,"591,494",42,20
+Region XI,Davao del Sur,"697,574",12,9
+Region XI,Davao Occidental,"318,776",9,3
+Region XI,City of Davao,"1,824,751",22,15
+Region XII,North Cotabato,"1,317,572",39,11
+Region XII,Sarangani,"579,863",16,4
+Region XII,South Cotabato,"1,006,003",26,12
+Region XII,Sultan Kudarat,"881,039",90,12
+Region XII,City of General Santos,"723,145",13,6
+BARMM,Basilan,"431,169",13,3
+BARMM,Lanao del Sur,"1,210,346",42,19
+BARMM,Maguindanao,"1,391,043",13,5
+BARMM,Sulu,"1,006,150",16,2
+BARMM,Tawi-Tawi,"442,766",8,4
+BARMM,SGA,"223,577",6,0
+BARMM,City of Cotabato,"334,811",4,2
+Caraga,Agusan del Norte,"396,078",12,9
+Caraga,Agusan del Sur,"759,431",29,8
+Caraga,Surigao del Norte,"545,689",27,8
+Caraga,Surigao del Sur,"661,201",32,20
+Caraga,Province of Dinagat,"129,127",8,2
+Caraga,City of Butuan,"381,425",5,2
