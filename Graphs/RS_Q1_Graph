@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
-import pandas as pandas
+import pandas as pd
+import os
 
 # Read Google Sheets as CSV
-df = pandas.read_csv('../Datasets/Stat_HFProvincial.csv')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+df = pd.read_csv('../Datasets/Stat_HFProvincial.csv')
 
 # Group by region name and sum the total for each city
 region_totals = df.groupby('Region Name')['TOTAL'].sum().reset_index()
@@ -21,4 +23,5 @@ for bar in bars:
     plt.text(bar.get_x() + bar.get_width()/2, height + 1,
              str(height), ha='center', va='bottom', fontsize=8)
 
+plt.tight_layout()
 plt.show()
