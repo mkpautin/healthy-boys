@@ -351,5 +351,11 @@ ol {
     text-decoration: none;
     color: red;
     font-family: 'Jost', sans-serif;
+}
 
+.explain {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 60%;
 }
