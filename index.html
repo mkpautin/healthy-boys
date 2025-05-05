@@ -3,119 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bricks & Bedside | Healthy Boys</title>
+    <link rel="icon" href="./image/favicon-new.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="overview">
-        <h2>Overview</h2>
-        <div>
-            Despite advancements made in technology and medicine, access to proper healthcare remains limited for many Filipinos, possibly contributing to the country's high mortality rate up to this date.
-        </div>
-        <div>
-            As such, we intend to use this study to examine the factors influencing healthcare accessibility and to determine its correlation, if significant, with Filipino mortality rates, shedding light on the disparities in healthcare availability across different regions.
-        </div>
+    <nav>
+        <ul>
+            <li><a href="#part1">Home</a></li>
+            <li><a href="#part2">Overview</a></li>
+            <li><a href="#part3">Collection</a></li>
+            <li><a href="#part4">Exploration</a></li>
+            <li><a href="#part5">Team</a></li>
+        </ul>
+    </nav>
+
+    <div class="home" id="part1">
+        <div class="maintitle">Bricks & Bedside: Correlating Health Facility Availability with Mortality Rates Across Philippine Regions</div>
     </div>
-    <div class="background">
-        <h2>Background</h2>
-        <div>
-            Throughout the years, accessibility to healthcare and basic health services continue to be scarce and uneven in the Philippines.
+
+    <div class="overview" id="part2">
+        <div class="main">
+            <div class="text-title">
+                Overview
+            </div>
+            <div class="text-heavy">
+                Despite advancements made in technology and medicine, access to proper healthcare remains limited for many Filipinos, possibly contributing to the country's high mortality rate up to this date.
+            </div>
+            <div class="text-support">
+                As such, we intend to use this study to examine the factors influencing healthcare accessibility and to determine its correlation, if significant, with Filipino mortality rates, shedding light on the disparities in healthcare availability across different regions.
+            </div>
         </div>
-        <div>
-            In April of 2024, the World Health Organization stated that almost 800 million people in the Western Pacific region, including the Philippines, have insufficient access to basic healthcare services. This is further seen in the continuous increase of household expenditures from ₱686.49 billion in 2023 to ₱754.54 billion in 2024. Although the amount of facilities have increased, totaling to 40,108 health facilities in the country as of January 2024, this remains disproportionate among regions with CALABARZON having 4,415 facilities while other regions such as NCR and CAR having 2,784 and 1,278 facilities respectively.
-        </div>
-        Sources: <a href="https://www.statista.com/topics/6483/health-sector-in-the-philippines/#topicOverview" rel="noreferrer noopener" target="_blank">[1]</a> <a href="https://globalnation.inquirer.net/230863/who-basic-health-services-lacking-in-ph-western-pacific" rel="noreferrer noopener" target="_blank">[2]</a>
-    </div>
-    <div class="problem">
-        <h2>Problem</h2>
-        The inaccessibility of proper healthcare for many Filipinos has been exacerbated by the lacking amount of facilities and professionals in the industry as well as the increasing pricing of healthcare itself.
-    </div>
-    <div class="solutions">
-        <h2>Solutions</h2>
-        Our solution is to make use of data science methods and tools to analyze these factors that affect the accessibility of healthcare among Filipinos as a way to gain insights of the current situation of our healthcare system, giving way for feasible solutions to be implemented.
-    </div>
-    <div class="hypotheses">
-        <h2>Hypotheses</h2>
-        <div>
-            Null: There is little to no correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
-        </div>
-        <div>
-            Alternative: There is a significant correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
-        </div>
-    </div>
-    <div class="topics">
-        <h2>Research Topics</h2>
-        "Correlation of the Availability of Health Facilities and Mortality rate”
-        <ol>
-            <li>How many health facilities are currently operational in each region?</li>
-            <li>What is the ratio of healthcare professionals to the population in different regions?</li>
-            <li>How does the availability of health facilities correlate to the mortality rate in each region?"</li>
-        </ol>
-    </div>
-    <div class="data-source">
-        <h3>Where we got our data:</h3>
-        <ol>
-            <li>
-                Vital Statistics Report on Deaths in the Philippines 2023 - Philippine Statistics Authority
-                <div>
-                    The 2023 yearly report on deaths in the Philippines. The dataset has a total of 698,421 observations. It contains the following fields:
-                    <ul>
-                        <li>Date of Death</li>
-                        <li>Place of Death</li>
-                        <li>Sex</li>
-                        <li>Age</li>
-                        <li>Residence</li>
-                        <li>Civil Status</li>
-                        <li>Citizenship</li>
-                        <li>Site of Occurence</li>
-                        <li>Attendance at Death</li>
-                        <li>Registration Status</li>
-                        <li>Cause of Death.</li>
-                    </ul>
+        <div class="bps">
+            <div class="background">
+                <div class="text-title">
+                    Background
                 </div>
-            </li>
-            <li>
-                Active Facilities List - National Health Facility Registry
-                <div>
-                    The master list of all active health facilities and health-related facilities. The dataset has a total of 118 observations. It contains the following fields:
-                    <ul>
-                        <li>Region Name</li>
-                        <li>Province Name</li>
-                        <li>No. of Barangay Health Stations</li>
-                        <li>No. of Rural Health Units</li>
-                        <li>No. of Hospitals</li>
-                        <li>No. of City Health Offices</li>
-                        <li>No. of Infirmaries</li>
-                        <li>No. of Birthing Homes</li>
-                        <li>No. of Health Facilities with No License</li>
-                        <li>No. of Health Facilities with License</li>
-                        <li>No. of Health Facilities by the Government</li>
-                        <li>No. of Private Health Facilities</li>
-                    </ul> 
+                <div class="text-heavy">
+                    Throughout the years, accessibility to healthcare and basic health services continue to be scarce and uneven in the Philippines.
                 </div>
-            </li>
-            <li>
-                Field Health Services Information System 2023 - Department of Health
-                <div>
-                    The report on the national facility-based routine health information system used by the Department of Health to collect and manage data on health service delivery and public health programs. However, we will only be using data on the number and ratio by health professional and active barangay health worker in each province and region. The dataset has a total of 122 observations. The dataset has the following fields:
-                    <ul>
-                        <li>Region Name</li>
-                        <li>Province Name</li>
-                        <li>Population</li>
-                        <li>Doctors of Medicine</li>
-                        <li>Dentists</li>
-                        <li>Public Health Nurses</li>
-                        <li>Midwives</li>
-                        <li>Nutritionists</li>
-                        <li>Medical Technologists</li>
-                        <li>Sanitary Engineers</li>
-                        <li>Sanitary Inspectors</li>
-                        <li>Active Barangay Health Workers</li>
-                    </ul>
+                <div class="text-support">
+                    In April of 2024, the World Health Organization stated that almost 800 million people in the Western Pacific region, including the Philippines, have insufficient access to basic healthcare services. This is further seen in the continuous increase of household expenditures from ₱686.49 billion in 2023 to ₱754.54 billion in 2024. Although the amount of facilities have increased, totaling to 40,108 health facilities in the country as of January 2024, this remains disproportionate among regions with CALABARZON having 4,415 facilities while other regions such as NCR and CAR having 2,784 and 1,278 facilities respectively.
                 </div>
-            </li>
-        </ol>
-        <a href="https://docs.google.com/spreadsheets/d/1hA3XoAqu0r-yoPFXHe1NJnfaSTSp3r3lgN0DjGbvzRs/edit?usp=sharing" rel="noreferrer noopener" target="_blank">View our dataset here</a>
+                <div class="source">
+                    Sources: <a href="https://www.statista.com/topics/6483/health-sector-in-the-philippines/#topicOverview" rel="noreferrer noopener" target="_blank">[1]</a> <a href="https://globalnation.inquirer.net/230863/who-basic-health-services-lacking-in-ph-western-pacific" rel="noreferrer noopener" target="_blank">[2]</a>
+                </div>
+            </div>
+            <div class="pns">
+                <div class="problem">
+                    <div class="text-title">Problem</div>
+                    <div class="text-pns">
+                        The inaccessibility of proper healthcare for many Filipinos has been exacerbated by the lacking amount of facilities and professionals in the industry as well as the increasing pricing of healthcare itself.
+                    </div>
+                </div>
+                <div class="solution">
+                    <div class="text-title">Solution</div>
+                    <div class="text-pns">
+                        Our solution is to make use of data science methods and tools to analyze these factors that affect the accessibility of healthcare among Filipinos as a way to gain insights of the current situation of our healthcare system, giving way for feasible solutions to be implemented.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rqh">
+        <div class="questions">
+            <div class="text-b">
+                We aim to answer the following questions:
+            </div>
+            <ol class="text-rqh">
+                <li>How many health facilities are currently operational in each region?</li>
+                <li>How does the availability of health facilities correlate to the mortality rate in each region?</li>
+            </ol>
+        </div>
+        <div class="hypotheses">
+            <div class="text-b">
+                and came up with:
+            </div>
+            <div class="null">
+                <div class="text-title">Null Hypothesis</div>
+                <div class="text-rqh hypo">
+                    There is little to no correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
+                </div>
+            </div>
+            <div class="alternative">
+                <div class="text-title">Alternative Hypothesis</div>
+                <div class="text-rqh hypo">
+                    There is a significant correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="collection" id="part3">
+        <div class="text-title">Data Collection</div>
+        <div class="text-b">Where we got our data:</div>
+        <div class="data">
+            <div class="vsr">
+                <div class="source-title">Vital Statistics Report on Deaths in the Philippines 2023 - Philippine Statistics Authority</div>
+                <div class="source-description">
+                    The 2023 yearly report on deaths in the Philippines. The dataset has a total of 698,421 observations.
+                </div>
+            </div>
+            <div class="nhfr">
+                <div class="source-title">Active Facilities List - National Health Facility Registry</div>
+                <div class="source-description">
+                    The master list of all active health facilities and health-related facilities. The dataset has a total of 118 observations.
+                </div>
+            </div>
+            <div class="fhsis">
+                <div class="source-title">Field Health Services Information System 2023 - Department of Health</div>
+                <div class="source-description">
+                    The report on the national facility-based routine health information system used by the Department of Health to collect and manage data on health service delivery and public health programs. However, we only used data on the population in each province and region. The dataset has a total of 122 observations.
+                </div>
+            </div>
+        </div>
+        <div class="viewdata"><a href="https://docs.google.com/spreadsheets/d/1hA3XoAqu0r-yoPFXHe1NJnfaSTSp3r3lgN0DjGbvzRs/edit?usp=sharing" rel="noreferrer noopener" target="_blank">View our dataset here!</a></div>
+    </div>
+
+    <div class="exploration" id="part4">
+        <div class="text-title">Data Exploration</div>
+        <div class="text-b">How did we explore our data?</div>
+        <div class="question1">
+            <div class="plot">
+                <img src="./Graphs/RS_Q1_Graph.png" alt="Graph 1">
+            </div>
+            <div class="desc">
+                We began our exploration by taking the master list of active health facilities, cleaning and normalizing each “Region” label, then computing a new “Total Facilities” column (summing hospitals, RHUs, barangay stations, birthing homes, etc.). Next, we grouped that table by region and plotted a simple vertical bar chart of total facilities per region. That visualization let us immediately spot which regions (e.g. Region IVA, Region V) had the largest networks of clinics and which (e.g. BARMM, Region IX) had the fewest, guiding our subsequent per-capita and mortality-rate analyses.
+            </div>
+        </div>
+        <div class="question2">
+            <div class="plot">
+                <img src="./Graphs/RS_Q2_Graph.png" alt="Graph 2">
+            </div>
+            <div class="desc">
+                A scatter plot with each region having a dedicated data point. Each point's x-value is the region's health facility density ( [amt. of health facilities / total population of the region] * 10000) and its y-value is its respective mortality rate ( [amt. of deaths / total population of the region] * 10000). A best fit line created using least squares regression shows a positive relationship between a region's health facility density and its mortality rate.
+            </div>
+        </div>
+    </div>
+    <div class="testing">
+        <div class="text-title">Hypothesis Testing Results</div>
+        <div class="explain">
+            
+        </div>
+        <div class="test"><a href="https://github.com/mkpautin/healthy-boys/blob/main/pearsonr.py" rel="noreferrer noopener" target="_blank">View how we did our hypothesis testing here</a></div>
+    </div>
+    <div class="team" id="part5">
+        <div class="text-title">Meet the Team!</div>
+        <div class="mems">
+            <div class="mk">
+                <img src="./image/mk.jpg" alt="MK">
+                <div class="name">
+                    Muhamad Khaled Pau-tin
+                </div>
+                <div class="socials">
+                    <a href="https://facebook.com/cactus.you" rel="noreferrer noopener" target="_blank"><img src="./image/fb.png" alt="Facebook icon"></a>
+                </div>
+            </div>
+            <div class="tolen">
+                <img src="./image/tolen.jpg" alt="Tolen">
+                <div class="name">
+                    Sean Kenji Tolentino
+                </div>
+                <div class="socials">
+                    <a href="https://facebook.com/seankenji.tolentino" rel="noreferrer noopener" target="_blank"><img src="./image/fb.png" alt="Facebook icon"></a>
+                </div>
+            </div>
+            <div class="nate">
+                <img src="./image/nate.jpg" alt="Nate">
+                <div class="name">
+                    Nathan Zuñiga
+                </div>
+                <div class="socials">
+                    <a href="https://facebook.com/nathan.zuniga.7127" rel="noreferrer noopener" target="_blank"><img src="./image/fb.png" alt="Facebook icon"></a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
