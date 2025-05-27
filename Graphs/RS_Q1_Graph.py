@@ -11,7 +11,9 @@ region_totals = df.groupby('Region Name')['TOTAL'].sum().reset_index()
 
 # Plot data
 plt.figure(figsize=(12, 6))
-bars = plt.bar(region_totals['Region Name'], region_totals['TOTAL'], color='#478ff2')
+bars = plt.bar(region_totals['Region Name'], region_totals['TOTAL'], color='red')
+
+# Add labels and title
 plt.xlabel('Region')
 plt.ylabel('Total Health Facilities')
 plt.title('Total Health Facilities per Region')
@@ -23,5 +25,6 @@ for bar in bars:
     plt.text(bar.get_x() + bar.get_width()/2, height + 1,
              str(height), ha='center', va='bottom', fontsize=8)
 
+# Display plot
 plt.tight_layout()
 plt.show()

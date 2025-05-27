@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Nutshell Graph</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+  
+    <body>
+        <div id="bar_chart_div" style="width: 1600px; height: 900px; text-align: center;"></div>
+
+        <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(loadCSV);
+        
+        // Load CSV for data
+        function loadCSV() {
+            fetch('https://raw.githubusercontent.com/mkpautin/healthy-boys/main/Datasets/region_health_stats.csv')
+                .then( response => {
+                    return response.text(); 
+                })
+
+                .then(csvText => {
+                    const dataArray = parseCSV(csvText);
+                    drawChart(dataArray);
+                })
+        }
+
+        // Parse CSV Data to 2D Array
+        function parseCSV(csv) {
+            const lines = csv.trim().split('\n');
+            const data = [['Region', 'Health Facility Density', 'Mortality Rate']]; // Header row name
+
+            // Extract Region Name[0], HF Density[4], Mortality Rate[3]
+            for (let i = 1; i < lines.length; i++) {
+                const parts = lines[i].split(',');
+                const region = parts[0];
+                const density = parseFloat(parts[4]);
+                const mortality = parseFloat(parts[3]);
+
+                data.push([region, density, mortality]);
+            }
+
+            return data;
+        }
+
+        function drawChart(dataArray) {
+            const data = google.visualization.arrayToDataTable(dataArray);
+            
+            const options = {
+                // Title, Background Color, Bar Size
+                title: 'Health Facility Density (Bar) vs Mortality Rate (Line) per Region',
+                titleTextStyle: { fontName: 'Roboto', fontSize: 30, bold: true, italic: false, color: '#ffffff' },
+                backgroundColor: '#1b181c',
+                colors: ['#648fff', '#dc267f'],
+                chartArea: { left: '7%', right: '7%', top: '15%', bottom: '20%'},
+                bar: { groupWidth: "85%" },
+                
+
+                // Horizontal Axis
+                hAxis: {
+                    title: 'Region',
+                    slantedText: true,
+                    slantedTextAngle: 90,
+                    textStyle: { fontName: 'Roboto', fontSize: 16, color: '#ffffff' },
+                    titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffffff', italic: false },
+                    baselineColor: '#ffffff'
+                },
+
+                // Vertical Axes (0 = Bar; 1 = Line)
+                vAxes: {
+                    0: {
+                        title: 'Health Facility Density',
+                        minValue: 0,
+                        textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffffff' },
+                        titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffffff', italic: false },
+                        gridlines: { color: 'transparent' },
+                        baselineColor: '#ffffff'
+                    },
+                    1: {
+                        title: 'Mortality Rate',
+                        textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffffff' },
+                        titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffffff', italic: false },
+                        textPosition: 'out',
+                        gridlines: { color: 'transparent' },
+                        baselineColor: '#ffffff'
+                    }
+                },
+
+                // Legend
+                legend: {
+                    position: 'right',
+                    textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffffff' }
+                },
+
+                // Combo chart type setup
+                seriesType: 'bars',
+                series: {
+                    0: { targetAxisIndex: 0, type: 'bars' },   // Health Facility Density → Left axis
+                    1: { targetAxisIndex: 1, type: 'line', lineWidth: 5 }    // Mortality Rate → Right axis
+                }
+            };
+
+            const chart = new google.visualization.ComboChart(document.getElementById('bar_chart_div'));   
+            chart.draw(data, options);
+        }
+        </script>
+
+    </body>
+
+</html>
