@@ -1,44 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-    <head>
-        <title>Nutshell Graph</title>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    </head>
-  
-    <body>
-        <div id="bar_chart_div" style="width: 1600px; height: 900px; text-align: center;"></div>
+<head>
+    <meta charset="UTF-8" />
+    <title>Nutshell Graph</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <script>
-        google.charts.load('current', { packages: ['corechart'] });
-        google.charts.setOnLoadCallback(loadCSV);
-        
-        // Load CSV for data
-        function loadCSV() {
-            fetch('https://raw.githubusercontent.com/mkpautin/healthy-boys/main/Datasets/region_health_stats.csv')
-                .then( response => {
-                    return response.text(); 
-                })
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed&display=swap" rel="stylesheet" />
 
-                .then(csvText => {
-                    const dataArray = parseCSV(csvText);
-                    drawChart(dataArray);
-                })
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- html2canvas for PNG export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1b181c;
         }
 
-        // Parse CSV Data to 2D Array
+        #exportPNG {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            font-family: 'Roboto', sans-serif;
+            padding: 10px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #333;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            user-select: none;
+        }
+
+        #exportPNG:hover {
+            background: #555;
+        }
+
+        #chart_container {
+            position: relative;
+            width: 90vw;
+            max-width: 1920px;
+            aspect-ratio: 16 / 9;
+            background-color: #1b181c;
+            font-family: 'Roboto', sans-serif;
+            margin: 0 auto;
+        }
+
+        #bar_chart_div {
+            width: 100%;
+            height: 100%; 
+        }
+
+        #bar_chart_div svg text {
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        .chart-title {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            font-weight: 700;
+            pointer-events: none;
+        }
+
+        .chart-source {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 10px;
+            color: #ffffff;
+            text-align: right;
+            max-width: 1200px;
+            line-height: 1.6;
+            pointer-events: none;
+        }
+
+        #loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 24px;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="exportPNG" tabindex="0" aria-label="Export chart as PNG">Export as PNG</button>
+
+    <div id="chart_container">
+        <div id="bar_chart_div"></div>
+
+        <!-- Plot Title -->
+        <div class="chart-title">
+            Health Density vs Mortality Rate per Region
+        </div>
+
+        <!-- Data Source -->
+        <div class="chart-source">
+            <strong>Data:</strong><br />
+            Department of Health, Epidemiology Bureau – Field Health Services Information System (2023)<br />
+            Philippine Statistics Authority – Vital Statistics Report on Deaths in the Philippines (2023)<br />
+            Department of Health – National Health Facility Register: Provincial Facility Details (2023)<br />
+        </div>
+    </div>
+
+    <div id="loading">Loading, please wait...</div>
+
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(loadCSV);
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function loadCSV() {
+            showLoading();
+            fetch('https://raw.githubusercontent.com/mkpautin/healthy-boys/main/Datasets/region_health_stats.csv')
+                .then(response => response.text())
+                .then(csvText => {
+                    window.dataArray = parseCSV(csvText);
+                    drawChart(window.dataArray);
+                })
+                .finally(() => {
+                    hideLoading();
+                });
+        }
+
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
-            const data = [['Region', 'Health Facility Density', 'Mortality Rate']]; // Header row name
+            const data = [['Region', 'Health Facility Density', 'Mortality Rate']];
 
-            // Extract Region Name[0], HF Density[4], Mortality Rate[3]
             for (let i = 1; i < lines.length; i++) {
                 const parts = lines[i].split(',');
                 const region = parts[0];
                 const density = parseFloat(parts[4]);
                 const mortality = parseFloat(parts[3]);
-
                 data.push([region, density, mortality]);
             }
 
@@ -46,67 +169,110 @@
         }
 
         function drawChart(dataArray) {
-            const data = google.visualization.arrayToDataTable(dataArray);
-            
-            const options = {
-                // Title, Background Color, Bar Size
-                title: 'Health Facility Density (Bar) vs Mortality Rate (Line) per Region',
-                titleTextStyle: { fontName: 'Roboto', fontSize: 30, bold: true, italic: false, color: '#ffffff' },
-                backgroundColor: '#1b181c',
-                colors: ['#648fff', '#dc267f'],
-                chartArea: { left: '7%', right: '7%', top: '15%', bottom: '20%'},
-                bar: { groupWidth: "85%" },
-                
+            const container = document.getElementById('chart_container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
 
-                // Horizontal Axis
+            const newDataArray = [['Region', 'Health Facility Density', { role: 'style' }, 'Mortality Rate']];
+            let densities = dataArray.slice(1).map(r => r[1]);
+            let maxDensity = Math.max(...densities);
+            let minDensity = Math.min(...densities);
+
+            for (let i = 1; i < dataArray.length; i++) {
+                const region = dataArray[i][0];
+                const density = dataArray[i][1];
+                const mortality = dataArray[i][2];
+                const color = interpolateColor([220, 38, 127], [100, 143, 255], (density - minDensity) / (maxDensity - minDensity));
+                const colorHex = rgbToHex(color[0], color[1], color[2]);
+                newDataArray.push([region, density, `color: ${colorHex}`, mortality]);
+            }
+
+            const data = google.visualization.arrayToDataTable(newDataArray);
+
+            const options = {
+                backgroundColor: '#1b181c',
+                chartArea: { left: '10%', right: '10%', top: '20%', bottom: '25%' },
+                width: width,
+                height: height,
+                bar: { groupWidth: "85%" },
                 hAxis: {
                     title: 'Region',
                     slantedText: true,
-                    slantedTextAngle: 90,
+                    slantedTextAngle: 45,
                     textStyle: { fontName: 'Roboto', fontSize: 16, color: '#ffffff' },
                     titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffffff', italic: false },
-                    baselineColor: '#ffffff'
+                    gridlines: { color: 'transparent' }
                 },
-
-                // Vertical Axes (0 = Bar; 1 = Line)
                 vAxes: {
                     0: {
                         title: 'Health Facility Density',
                         minValue: 0,
-                        textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffffff' },
-                        titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffffff', italic: false },
-                        gridlines: { color: 'transparent' },
-                        baselineColor: '#ffffff'
+                        textStyle: { fontName: 'Roboto', fontSize: 20, color: '#6495ED' },
+                        titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#6495ED', italic: false },
+                        gridlines: { color: 'transparent' }
                     },
                     1: {
                         title: 'Mortality Rate',
-                        textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffffff' },
-                        titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffffff', italic: false },
+                        textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffb000' },
+                        titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#ffb000', italic: false },
                         textPosition: 'out',
-                        gridlines: { color: 'transparent' },
-                        baselineColor: '#ffffff'
+                        gridlines: { color: 'transparent' }
                     }
                 },
-
-                // Legend
-                legend: {
-                    position: 'right',
-                    textStyle: { fontName: 'Roboto', fontSize: 20, color: '#ffffff' }
-                },
-
-                // Combo chart type setup
-                seriesType: 'bars',
                 series: {
-                    0: { targetAxisIndex: 0, type: 'bars' },   // Health Facility Density → Left axis
-                    1: { targetAxisIndex: 1, type: 'line', lineWidth: 5 }    // Mortality Rate → Right axis
+                    0: {
+                        targetAxisIndex: 0,
+                        type: 'bars'
+                    },
+                    1: {
+                        targetAxisIndex: 1,
+                        type: 'line',
+                        lineWidth: 5,
+                        pointSize: 12,
+                        pointShape: 'circle',
+                        color: '#ffb000'
+                    }
+                },
+                legend: {
+                    position: 'bottom',
+                    textStyle: { fontName: 'Roboto', fontSize: 16, color: '#ffffff' }
                 }
             };
 
-            const chart = new google.visualization.ComboChart(document.getElementById('bar_chart_div'));   
+            const chart = new google.visualization.ComboChart(document.getElementById('bar_chart_div'));
             chart.draw(data, options);
         }
-        </script>
 
-    </body>
+        function interpolateColor(color1, color2, t) {
+            return color1.map((c, i) => Math.round(c + (color2[i] - c) * t));
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        }
+
+        document.getElementById('exportPNG').addEventListener('click', () => {
+            showLoading();
+            html2canvas(document.getElementById('chart_container'), {
+                scale: 3,
+                useCORS: true
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'nutshell_graph.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).finally(() => {
+                hideLoading();
+            });
+        });
+
+        // Redraw chart on window resize
+        window.addEventListener('resize', () => {
+            if (window.dataArray) {
+                drawChart(window.dataArray);
+            }
+        });
+    </script>
+</body>
 
 </html>
