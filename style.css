@@ -1,3 +1,4 @@
+/* ======= Base Styles ======= */
 body {
     display: flex;
     flex-direction: column;
@@ -5,8 +6,13 @@ body {
     padding: 0;
     background-image: url('./image/background.png');
     background-repeat: repeat;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    scroll-behavior: smooth;
 }
 
+/* ======= Navigation ======= */
 nav {
     height: 64px;
     background-color: #eb0e0e;
@@ -25,13 +31,13 @@ nav ul {
     display: flex;
     padding: 0;
     margin: 0;
-    list-style-type: none;
+    list-style: none;
     justify-content: space-between;
 }
 
 nav ul li {
     font-family: 'Inter', sans-serif;
-    font-size: 20;
+    font-size: 20px;
     color: white;
     margin: 0 20px;
 }
@@ -49,6 +55,26 @@ nav ul li a {
     text-decoration: none;
 }
 
+nav ul li a:focus {
+    outline: 2px dashed #FFD700;
+    outline-offset: 4px;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 20px;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* ======= Text Styles ======= */
 .text-title {
     font-family: 'Inria Sans', 'Inter', sans-serif;
     text-decoration: underline;
@@ -74,6 +100,18 @@ nav ul li a {
     width: 70%;
 }
 
+.text-b {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.text-rqh {
+    font-family: 'Jost', 'Inter', sans-serif;
+    font-size: 24px;
+}
+
+/* ======= Layout Containers ======= */
 .overview {
     display: flex;
     flex-direction: column;
@@ -112,7 +150,7 @@ nav ul li a {
     width: 75%;
 }
 
-.background {
+.background, .pns {
     width: 50vw;
     padding: 30px;
     box-sizing: border-box;
@@ -128,7 +166,7 @@ nav ul li a {
 .background .text-support {
     font-size: 15px;
     width: 70%;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .background .source {
@@ -136,13 +174,6 @@ nav ul li a {
     font-family: 'Inter', sans-serif;
     font-style: italic;
     text-align: center;
-}
-
-.pns {
-    width: 50vw;
-    padding: 30px;
-    box-sizing: border-box;
-    align-items: center;
 }
 
 .problem, .solution {
@@ -154,20 +185,16 @@ nav ul li a {
     flex-direction: column;
     margin: 100px;
     padding: 30px;
-    background-color: rgba(255,255,255,0.90);
+    background-color: rgba(255,255,255,0.9);
     border-radius: 10px;
     justify-content: center;
-}
 
-.text-b {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    margin-bottom: 20px;
+    /* Hover effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
-.text-rqh {
-    font-family: 'Jost', 'Inter', sans-serif;
-    font-size: 24px;
+.rqh:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
 }
 
 .questions {
@@ -196,12 +223,18 @@ ol {
 .collection {
     display: flex;
     flex-direction: column;
-    margin: 0 150px;
-    margin-bottom: 100px;
+    margin: 0 150px 100px 150px;
     padding: 20px;
     align-items: center;
-    background-color: rgba(255,255,255,0.90);
+    background-color: rgba(255,255,255,0.9);
     border-radius: 10px;
+
+    /* Hover effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.collection:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
 }
 
 .collection .text-b {
@@ -233,26 +266,24 @@ ol {
 .viewdata a {
     font-family: 'Jost', sans-serif;
     text-decoration: none;
-    color: red;
+    color: #ce1d1d;
 }
 
 .exploration {
     display: flex;
     flex-direction: column;
-    margin: 0px 100px;
-    margin-bottom: 50px;
+    margin: 0 100px 50px 100px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     align-items: center;
-
 }
 
 .question1, .question2 {
-   display: flex;
-   flex-direction: column;
-   justify-items: center;
-   margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-top: 20px;
 }
 
 .desc {
@@ -262,22 +293,28 @@ ol {
 
 .plot {
     width: 100%;
-
 }
 
 .plot img {
     width: 100%;
 }
 
+/* ======= Team Section ======= */
 .team {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
     background-color: #ce1d1d;
-    margin: 0 100px;
-    margin-bottom: 50px;
+    margin: 0 100px 50px 100px;
     border-radius: 10px;
+
+    /* Hover effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.team:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
 }
 
 .team .text-title {
@@ -286,18 +323,10 @@ ol {
 
 .mems {
     display: flex;
-
-}
-
-.mk img {
     width: 100%;
 }
 
-.nate img {
-    width: 100%;
-}
-
-.tolen img {
+.mk img, .nate img, .tolen img {
     width: 100%;
 }
 
@@ -317,10 +346,10 @@ ol {
     font-size: 20px;
 }
 
+/* ======= Home Section ======= */
 .home {
     display: flex;
-    margin: 0px 100px;
-    margin-top: 100px;
+    margin: 100px 100px 0 100px;
     background-color: rgba(206, 29, 29, 0.8);
     border-radius: 10px;
     justify-content: center;
@@ -336,9 +365,9 @@ ol {
     width: 75%;
 }
 
+/* ======= Testing Section ======= */
 .testing {
-    margin: 0 100px;
-    margin-bottom: 20px;
+    margin: 0 100px 20px 100px;
     background-color: white;
     padding: 20px;
     display: flex;
@@ -349,7 +378,7 @@ ol {
 
 .test a {
     text-decoration: none;
-    color: red;
+    color: #ce1d1d;
     font-family: 'Jost', sans-serif;
 }
 
@@ -358,4 +387,45 @@ ol {
     font-size: 15px;
     margin-bottom: 10px;
     width: 60%;
+}
+
+/* ======= Buttons ======= */
+button, .btn {
+    background-color: #ce1d1d;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #a51515;
+}
+
+/* ======= Scrollbar Styling (Webkit) ======= */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ce1d1d;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+/* ======= Footer (optional) ======= */
+footer {
+    background-color: #eb0e0e;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Inter', sans-serif;
 }
