@@ -114,7 +114,7 @@
 
         <!-- Plot Title -->
         <div class="chart-title">
-            Health Density vs Mortality Rate per Region
+            Healthcare Facility Density vs Mortality Rate per Region
         </div>
 
         <!-- Data Source -->
@@ -122,7 +122,7 @@
             <strong>Data:</strong><br />
             Department of Health, Epidemiology Bureau – Field Health Services Information System (2023)<br />
             Philippine Statistics Authority – Vital Statistics Report on Deaths in the Philippines (2023)<br />
-            Department of Health – National Health Facility Register: Provincial Facility Details (2023)<br />
+            Department of Health – National Healthcare Facility Register: Provincial Facility Details (2023)<br />
         </div>
     </div>
 
@@ -155,7 +155,7 @@
 
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
-            const data = [['Region', 'Health Facility Density', 'Mortality Rate']];
+            const data = [['Region', 'Healthcare Facility Density', 'Mortality Rate']];
 
             for (let i = 1; i < lines.length; i++) {
                 const parts = lines[i].split(',');
@@ -173,7 +173,7 @@
             const width = container.clientWidth;
             const height = container.clientHeight;
 
-            const newDataArray = [['Region', 'Health Facility Density', { role: 'style' }, 'Mortality Rate']];
+            const newDataArray = [['Region', 'Healthcare Facility Density', { role: 'style' }, 'Mortality Rate']];
             let densities = dataArray.slice(1).map(r => r[1]);
             let maxDensity = Math.max(...densities);
             let minDensity = Math.min(...densities);
@@ -205,7 +205,7 @@
                 },
                 vAxes: {
                     0: {
-                        title: 'Health Facility Density',
+                        title: 'Healthcare Facility Density',
                         minValue: 0,
                         textStyle: { fontName: 'Roboto', fontSize: 20, color: '#6495ED' },
                         titleTextStyle: { fontName: 'Roboto', fontSize: 24, color: '#6495ED', italic: false },
