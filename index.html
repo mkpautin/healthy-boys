@@ -3,183 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bricks & Bedside: Analysis of Health Facility Availability and Mortality Rates in Philippine Regions">
+    <meta name="keywords" content="healthcare, Philippines, mortality rates, health facilities">
     <title>Bricks & Bedside | Healthy Boys</title>
     <link rel="icon" href="./image/favicon-new.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inria+Sans:wght@400;700&family=Jost:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#part1">Home</a></li>
-            <li><a href="#part2">Overview</a></li>
-            <li><a href="#part3">Collection</a></li>
-            <li><a href="#part4">Exploration</a></li>
-            <li><a href="#part5">Team</a></li>
+    <div class="page-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Main Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-logo">
+            <img src="./image/red.png" alt="Bricks & Bedside Logo">
+            <span>Bricks & Bedside</span>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">☰</button>
+        <ul id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#exploration">Exploration</a></li>
+            <li><a href="#discussion">Discussion</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#team">Team</a></li>
         </ul>
     </nav>
 
-    <div class="home" id="part1">
-        <div class="maintitle">Bricks & Bedside: Correlating Health Facility Availability with Mortality Rates Across Philippine Regions</div>
-    </div>
-
-    <div class="overview" id="part2">
-        <div class="main">
-            <div class="text-title">
-                Overview
-            </div>
-            <div class="text-heavy">
-                Despite advancements made in technology and medicine, access to proper healthcare remains limited for many Filipinos, possibly contributing to the country's high mortality rate up to this date.
-            </div>
-            <div class="text-support">
-                As such, we intend to use this study to examine the factors influencing healthcare accessibility and to determine its correlation, if significant, with Filipino mortality rates, shedding light on the disparities in healthcare availability across different regions.
-            </div>
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <h1 class="maintitle">Bricks & Bedside: Correlating Health Facility Availability with Mortality Rates Across Philippine Regions</h1>
+        <p class="subtitle">A data-driven exploration of healthcare infrastructure and its potential impact on mortality rates in the Philippines</p>
+        <div class="scroll-indicator">
+            <span></span>
         </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview" id="overview">
+        <div class="main">
+            <h2 class="text-title">Overview</h2>
+            <p class="text-heavy">
+                Despite advancements made in technology and medicine, access to proper healthcare remains limited for many Filipinos, possibly contributing to the country's high mortality rate up to this date.
+            </p>
+            <p class="text-support">
+                As such, we intend to use this study to examine the factors influencing healthcare accessibility and to determine its correlation, if significant, with Filipino mortality rates, shedding light on the disparities in healthcare availability across different regions.
+            </p>
+        </div>
+        
         <div class="bps">
             <div class="background">
-                <div class="text-title">
-                    Background
-                </div>
-                <div class="text-heavy">
+                <h2 class="text-title">Background</h2>
+                <p class="text-heavy">
                     Throughout the years, accessibility to healthcare and basic health services continue to be scarce and uneven in the Philippines.
-                </div>
-                <div class="text-support">
+                </p>
+                <p class="text-support">
                     In April of 2024, the World Health Organization stated that almost 800 million people in the Western Pacific region, including the Philippines, have insufficient access to basic healthcare services. This is further seen in the continuous increase of household expenditures from ₱686.49 billion in 2023 to ₱754.54 billion in 2024. Although the amount of facilities have increased, totaling to 40,108 health facilities in the country as of January 2024, this remains disproportionate among regions with CALABARZON having 4,415 facilities while other regions such as NCR and CAR having 2,784 and 1,278 facilities respectively.
-                </div>
-                <div class="source">
+                </p>
+                <p class="source">
                     Sources: <a href="https://www.statista.com/topics/6483/health-sector-in-the-philippines/#topicOverview" rel="noreferrer noopener" target="_blank">[1]</a> <a href="https://globalnation.inquirer.net/230863/who-basic-health-services-lacking-in-ph-western-pacific" rel="noreferrer noopener" target="_blank">[2]</a>
-                </div>
+                </p>
             </div>
+            
             <div class="pns">
                 <div class="problem">
-                    <div class="text-title">Problem</div>
-                    <div class="text-pns">
+                    <h3 class="text-title">Problem</h3>
+                    <p class="text-pns">
                         The inaccessibility of proper healthcare for many Filipinos has been exacerbated by the lacking amount of facilities and professionals in the industry as well as the increasing pricing of healthcare itself.
-                    </div>
+                    </p>
                 </div>
                 <div class="solution">
-                    <div class="text-title">Solution</div>
-                    <div class="text-pns">
+                    <h3 class="text-title">Solution</h3>
+                    <p class="text-pns">
                         Our solution is to make use of data science methods and tools to analyze these factors that affect the accessibility of healthcare among Filipinos as a way to gain insights of the current situation of our healthcare system, giving way for feasible solutions to be implemented.
-                    </div>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="rqh">
+    </section>
+
+    <!-- Research Questions & Hypotheses Section -->
+    <section class="rqh">
         <div class="questions">
-            <div class="text-b">
+            <p class="text-b">
                 We aim to answer the following questions:
-            </div>
+            </p>
             <ol class="text-rqh">
                 <li>How many health facilities are currently operational in each region?</li>
                 <li>How does the availability of health facilities correlate to the mortality rate in each region?</li>
             </ol>
         </div>
+        
         <div class="hypotheses">
-            <div class="text-b">
-                and came up with:
-            </div>
-            <div class="null">
-                <div class="text-title">Null Hypothesis</div>
-                <div class="text-rqh hypo">
-                    There is little to no correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
+            <p class="text-b">and came up with:</p>
+            <div class="hypothesis-container">
+                <div class="null">
+                    <h3 class="text-title">Null Hypothesis</h3>
+                    <p class="text-rqh hypo">
+                        There is little to no correlation between the amount of operational health facilities in a region and the region's corresponding mortality rates.
+                    </p>
                 </div>
-            </div>
-            <div class="alternative">
-                <div class="text-title">Alternative Hypothesis</div>
-                <div class="text-rqh hypo">
-                    There is a significant correlation between the amount of operational health facilities in a region and the region’s corresponding mortality rates.
+                <div class="alternative">
+                    <h3 class="text-title">Alternative Hypothesis</h3>
+                    <p class="text-rqh hypo">
+                        There is a significant correlation between the amount of operational health facilities in a region and the region's corresponding mortality rates.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="collection" id="part3">
-        <div class="text-title">Data Collection</div>
-        <div class="text-b">Where we got our data:</div>
+    </section>
+
+    <!-- Data Collection Section -->
+    <section class="collection" id="collection">
+        <h2 class="text-title">Data Collection</h2>
+        <p class="text-b">Where we got our data:</p>
+        
         <div class="data">
             <div class="vsr">
-                <div class="source-title">Vital Statistics Report on Deaths in the Philippines 2023 - Philippine Statistics Authority</div>
-                <div class="source-description">
-                    The 2023 yearly report on deaths in the Philippines. The dataset has a total of 698,421 observations.
+                <div class="source-image">
+                    <img src="./image/vsr-image.png" alt="Vital Statistics Report logo" loading="lazy">
                 </div>
+                <h3 class="source-title">Vital Statistics Report on Deaths in the Philippines 2023 - Philippine Statistics Authority</h3>
+                <p class="source-description">
+                    The 2023 yearly report on deaths in the Philippines. The dataset has a total of 698,421 observations.
+                </p>
             </div>
             <div class="nhfr">
-                <div class="source-title">Active Facilities List - National Health Facility Registry</div>
-                <div class="source-description">
-                    The master list of all active health facilities and health-related facilities. The dataset has a total of 118 observations.
+                <div class="source-image">
+                    <img src="./image/nhfr-image.png" alt="ational Health Facility Registry logo" loading="lazy">
                 </div>
+                <h3 class="source-title">Active Facilities List - National Health Facility Registry</h3>
+                <p class="source-description">
+                    The master list of all active health facilities and health-related facilities. The dataset has a total of 118 observations.
+                </p>
             </div>
             <div class="fhsis">
-                <div class="source-title">Field Health Services Information System 2023 - Department of Health</div>
-                <div class="source-description">
+                <div class="source-image">
+                    <img src="./image/fhsis-image.jpg" alt="Department of Health logo" loading="lazy">
+                </div>
+                <h3 class="source-title">Field Health Services Information System 2023 - Department of Health</h3>
+                <p class="source-description">
                     The report on the national facility-based routine health information system used by the Department of Health to collect and manage data on health service delivery and public health programs. However, we only used data on the population in each province and region. The dataset has a total of 122 observations.
-                </div>
+                </p>
             </div>
         </div>
-        <div class="viewdata"><a href="https://docs.google.com/spreadsheets/d/1hA3XoAqu0r-yoPFXHe1NJnfaSTSp3r3lgN0DjGbvzRs/edit?usp=sharing" rel="noreferrer noopener" target="_blank">View our dataset here!</a></div>
-    </div>
+        
+        <div class="viewdata">
+            <a href="https://docs.google.com/spreadsheets/d/1hA3XoAqu0r-yoPFXHe1NJnfaSTSp3r3lgN0DjGbvzRs/edit?usp=sharing" rel="noreferrer noopener" target="_blank">View our dataset here!</a>
+        </div>
+    </section>
 
-    <div class="exploration" id="part4">
-        <div class="text-title">Data Exploration</div>
-        <div class="text-b">How did we explore our data?</div>
-        <div class="question1">
-            <div class="plot">
-                <img src="./Graphs/RS_Q1_Graph.png" alt="Graph 1">
+    <!-- Data Exploration Section -->
+    <section class="exploration" id="exploration">
+        <h2 class="section-heading">Data Exploration</h2>
+        <p class="section-intro">How did we explore our data?</p>
+        
+        <div class="exploration-tabs">
+            <button class="tab-button active" data-target="question1">Question 1</button>
+            <button class="tab-button" data-target="question2">Question 2</button>
+        </div>
+        
+        <div class="tab-content">
+            <div id="question1" class="question-container active">
+                <div class="question-header">
+                    <span class="question-number">01</span>
+                    <h3 class="question-title">How many health facilities are currently operational in each region?</h3>
+                </div>
+                
+                <div class="visualization-container">
+                    <div class="plot">
+                        <img src="./Graphs/RS_Q1_Graph.png" alt="Bar chart showing total health facilities per region in the Philippines" loading="lazy">
+                    </div>
+                    <div class="analysis">
+                        <h4>What we found:</h4>
+                        <p class="desc">
+                            We began our exploration by taking the master list of active health facilities, cleaning and normalizing each "Region" label, then computing a new "Total Facilities" column (summing hospitals, RHUs, barangay stations, birthing homes, etc.). Next, we grouped that table by region and plotted a simple vertical bar chart of total facilities per region. That visualization let us immediately spot which regions (e.g. Region IVA, Region V) had the largest networks of clinics and which (e.g. BARMM, Region IX) had the fewest, guiding our subsequent per-capita and mortality-rate analyses.
+                        </p>
+                        <div class="key-insight">
+                            <span class="insight-icon">💡</span>
+                            <p>Some regions have significantly more health facilities than others, highlighting infrastructure disparities.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="desc">
-                We began our exploration by taking the master list of active health facilities, cleaning and normalizing each “Region” label, then computing a new “Total Facilities” column (summing hospitals, RHUs, barangay stations, birthing homes, etc.). Next, we grouped that table by region and plotted a simple vertical bar chart of total facilities per region. That visualization let us immediately spot which regions (e.g. Region IVA, Region V) had the largest networks of clinics and which (e.g. BARMM, Region IX) had the fewest, guiding our subsequent per-capita and mortality-rate analyses.
+            
+            <div id="question2" class="question-container">
+                <div class="question-header">
+                    <span class="question-number">02</span>
+                    <h3 class="question-title">How does the availability of health facilities correlate to the mortality rate in each region?</h3>
+                </div>
+                
+                <div class="visualization-container">
+                    <div class="plot">
+                        <img src="./Graphs/RS_Q2_Graph.png" alt="Scatter plot showing correlation between health facility density and mortality rate by region" loading="lazy">
+                    </div>
+                    <div class="analysis">
+                        <h4>What we found:</h4>
+                        <p class="desc">
+                            A scatter plot with each region having a dedicated data point. Each point's x-value is the region's health facility density ([amt. of health facilities / total population of the region] * 10000) and its y-value is its respective mortality rate ([amt. of deaths / total population of the region] * 10000). A best fit line created using least squares regression shows a positive relationship between a region's health facility density and its mortality rate.
+                        </p>
+                        <div class="key-insight">
+                            <span class="insight-icon">💡</span>
+                            <p>Contrary to initial expectations, regions with higher health facility density sometimes show higher mortality rates, suggesting complex socioeconomic factors at play.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="question2">
-            <div class="plot">
-                <img src="./Graphs/RS_Q2_Graph.png" alt="Graph 2">
+    </section>
+
+    <!-- Hypothesis Testing Section -->
+    <section class="testing">
+        <h2 class="text-title">Hypothesis Testing Results</h2>
+        <div class="result-summary">
+            <p>Pearson's Correlation Coefficient:</p>
+            <div class="result-value">r = 0.169</div>
+            <div class="p-value">p-value = 0.518</div>
+            <p class="result-interpretation">Indicating a positive but statistically insignificant correlation</p>
+        </div>
+        <p class="explain">
+            We employed the Pearson's r correlation coefficient test to test for the correlation of the independent variable of our study, the health facility density of a region (per 10,000 people), with the dependent variable of our study, which is the mortality rate of a region (per 10,000 people). We executed this test using Python, as well as a CSV created from our dataset with the data for Region Name, Deaths, Population, Mortality Rate (MR), and Health Facility Density (HFD) -- which were used in creating the graph for Research Question 3. With this test, we found a correlation coefficient of 0.169, suggesting that there is indeed a correlation between HFD and MR. With that in mind, however, it is worth noting that the p-value computed by the correlation test is greater than the standard 0.05, at a value of 0.518. This means that 0.169 finding is statistically insignificant – or that the observed results could occur randomly, and not prove any relationship at all between the two variables. We have then failed to reject the null hypothesis.
+        </p>
+        <div class="test">
+            <a href="https://github.com/mkpautin/healthy-boys/blob/main/pearsonr.py" rel="noreferrer noopener" target="_blank">View how we did our hypothesis testing here</a>
+        </div>
+    </section>
+
+<!-- Discussion Section -->
+    <section class="discussion" id="discussion">
+        <h2 class="section-heading">Discussion</h2>
+        <div class="discussion-content">
+            <div class="limitation-box">
+                <h3>Study Limitations</h3>
+                <ul>
+                    <li>Small sample size (18 regions) limiting statistical power</li>
+                    <li>Lack of data on other contributing factors (poverty, geography, etc.)</li>
+                    <li>Region-level analysis restricts granularity of insights</li>
+                    <li>No access to 2024 data for more current analysis</li>
+                </ul>
             </div>
-            <div class="desc">
-                A scatter plot with each region having a dedicated data point. Each point's x-value is the region's health facility density ( [amt. of health facilities / total population of the region] * 10000) and its y-value is its respective mortality rate ( [amt. of deaths / total population of the region] * 10000). A best fit line created using least squares regression shows a positive relationship between a region's health facility density and its mortality rate.
+            
+            <p>Due to the limited metrics available in our current dataset, our sample size of 18 regions was not "sufficiently large" for the data to be treated as normally distributed. Thus, we failed to reject the null hypothesis set in this study: that there is little to no correlation between healthcare facility density and mortality rate in a region.</p>
+            
+            <p>Be that as it may, we believe our exploration and analysis of the dataset remain relevant to the problems we set out to investigate. The scatter plot shows that, even though the correlation between the two variables was statistically insignificant, there may still be a positive relationship: increasing the number of healthcare facilities in densely populated regions appears to coincide with higher mortality rates in those same regions.</p>
+            
+            <div class="insight-highlight">
+                <div class="insight-icon">💡</div>
+                <div class="insight-content">
+                    <p>One possible interpretation is that an increase in healthcare facilities does not directly raise mortality rates, but instead leads to more accurate and complete recording of deaths. In other words, improved healthcare infrastructure might enhance logistical capabilities, such as data collection and record-keeping, rather than affect mortality rates directly.</p>
+                </div>
+            </div>
+            
+            <p>What conclusions or assumptions can be made from this? We believe that due to the lack of data on other possible factors influencing mortality rates—such as poverty levels, unemployment, geographical conditions, and more—we were unable to establish meaningful connections to explain this relationship.</p>
+        </div>
+    </section>
+
+<!-- Conclusion Section -->
+    <section class="conclusion" id="conclusion">
+        <h2 class="section-heading">Conclusion</h2>
+        <div class="conclusion-content">
+            <p>While our current findings do not support a statistically significant correlation, they underscore the importance of a multidimensional approach in health systems research in a country as complex as the Philippines. The lack of strong correlation does not necessarily imply the absence of a relationship, but rather points to the limitations of analyzing health outcomes without considering other crucial variables.</p>
+            
+            <div class="recommendations-box">
+                <h3>Recommendations for Future Research</h3>
+                <ul>
+                    <li>Include a broader range of variables (socioeconomic indicators, specific health outcomes, etc.)</li>
+                    <li>Analyze at city/municipality level rather than regional level</li>
+                    <li>Incorporate more recent and comprehensive datasets</li>
+                    <li>Investigate specific causes of death in relation to healthcare facility types</li>
+                </ul>
+            </div>
+            
+            <p>These findings should serve as a foundation for more comprehensive and inclusive studies in the future. Conducting future research can better identify the root causes of regional disparities in health outcomes and contribute to evidence-based solutions. In this way, data science can become a powerful tool not just for understanding the state of public health, but for enacting substantial, lasting change across the country.</p>
+            
+            <div class="final-quote">
+                <blockquote>
+                    "Our results suggest that improved healthcare infrastructure may lead to better data reporting rather than higher mortality, raising questions that require deeper investigation."
+                </blockquote>
             </div>
         </div>
-    </div>
-    <div class="testing">
-        <div class="text-title">Hypothesis Testing Results</div>
-        <div class="explain">
-            We employed the Pearson's r correlation coefficient test to test for the correlation of the independent variable of our study, the health facility density of a region (per 10,000 people), with the dependent variable of our study, which is the mortality rate of a region (per 10,000 people). We executed this test using Python, as well as a CSV created from our dataset with the data for Region Name, Deaths, Population, Mortality Rate (MR), and Health Facility Density (HFD) -- which were used in creating the graph for Research Question 3. With this test, we found a correlation coefficient of 0.169, suggesting that there is indeed a correlation between HFD and MR. This is also confirmed by the following graph which shows a sizable amount of data points close to the best fit line.
-        </div>
-        <div class="test"><a href="https://github.com/mkpautin/healthy-boys/blob/main/pearsonr.py" rel="noreferrer noopener" target="_blank">View how we did our hypothesis testing here</a></div>
-    </div>
-    <div class="team" id="part5">
-        <div class="text-title">Meet the Team!</div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <h2 class="text-title">Meet the Team!</h2>
         <div class="mems">
-            <div class="mk">
-                <img src="./image/mk.jpg" alt="MK">
-                <div class="name">
-                    Muhamad Khaled Pau-tin
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="./image/mk.jpg" alt="Team member MK Pau-tin" loading="lazy">
                 </div>
+                <h3 class="name">Muhamad Khaled Pau-tin</h3>
+                <p class="role">II - BS Computer Science | CS 132 WFV</p>
                 <div class="socials">
-                    <a href="https://facebook.com/cactus.you" rel="noreferrer noopener" target="_blank"><img src="./image/fb.png" alt="Facebook icon"></a>
+                    <a href="https://facebook.com/cactus.you" rel="noreferrer noopener" target="_blank">
+                        <img src="./image/fb.png" alt="Facebook icon" loading="lazy">
+                    </a>
+                    <a href="https://github.com/mkpautin" rel="noreferrer noopener" target="_blank">
+                        <img src="./image/github.png" alt="Github icon" loading="lazy">
+                    </a>
                 </div>
             </div>
-            <div class="tolen">
-                <img src="./image/tolen.jpg" alt="Tolen">
-                <div class="name">
-                    Sean Kenji Tolentino
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="./image/tolen.jpg" alt="Team member Sean Kenji Tolentino" loading="lazy">
                 </div>
+                <h3 class="name">Sean Kenji Tolentino</h3>
+                <p class="role">III - BS Computer Science | CS 132 WFV</p>
                 <div class="socials">
-                    <a href="https://facebook.com/seankenji.tolentino" rel="noreferrer noopener" target="_blank"><img src="./image/fb.png" alt="Facebook icon"></a>
+                    <a href="https://facebook.com/seankenji.tolentino" rel="noreferrer noopener" target="_blank">
+                        <img src="./image/fb.png" alt="Facebook icon" loading="lazy">
+                    </a>
+                    <a href="https://github.com/sktolen" rel="noreferrer noopener" target="_blank">
+                        <img src="./image/github.png" alt="Github icon" loading="lazy">
+                    </a>
                 </div>
             </div>
-            <div class="nate">
-                <img src="./image/nate.jpg" alt="Nate">
-                <div class="name">
-                    Nathan Zuñiga
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="./image/nate.jpg" alt="Team member Nathan Zuñiga" loading="lazy">
                 </div>
+                <h3 class="name">Nathaniel Silas Zuñiga</h3>
+                <p class="role">III - BS Computer Science | CS 132 WFV</p>
                 <div class="socials">
-                    <a href="https://facebook.com/nathan.zuniga.7127" rel="noreferrer noopener" target="_blank"><img src="./image/fb.png" alt="Facebook icon"></a>
+                    <a href="https://facebook.com/nathan.zuniga.7127" rel="noreferrer noopener" target="_blank">
+                        <img src="./image/fb.png" alt="Facebook icon" loading="lazy">
+                    </a>
+                    <a href="https://github.com/truenofalse" rel="noreferrer noopener" target="_blank">
+                        <img src="./image/github.png" alt="Github icon" loading="lazy">
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="team-footer">
+            <p>© 2025 Healthy Boys Team. All research conducted as part of an academic project.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#collection">Collection</a>
+                <a href="#exploration">Exploration</a>
+                <a href="#discussion">Discussion</a>
+                <a href="#conclusion">Conclusion</a>
+                <a href="#team">Team</a>
+            </nav>
+            <p>This research was conducted to analyze the correlation between health facility availability and mortality rates across Philippine regions.</p>
+            <p class="copyright">© 2025 CS 132 Capstone Project by Healthy Boys. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
 </body>
 </html>
